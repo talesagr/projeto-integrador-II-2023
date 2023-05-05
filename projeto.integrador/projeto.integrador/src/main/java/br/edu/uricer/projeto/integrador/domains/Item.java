@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 
-public class Items {
+public class Item {
     int weight;
     int value;
     String name;
