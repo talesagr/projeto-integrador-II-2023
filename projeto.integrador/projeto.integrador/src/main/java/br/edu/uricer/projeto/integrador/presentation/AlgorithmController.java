@@ -20,7 +20,7 @@ public class AlgorithmController {
 
     }
     @GetMapping("/default")
-    public ResponseEntity<Integer> getByBudget(@PathVariable int budget,@PathVariable List<Item> selectedItems) {
+    public ResponseEntity<Integer> getresult(@RequestParam int budget) {
         try {
             KnapsackAlgorithm knapsackAlgorithm = new KnapsackAlgorithm(); //TODO pegar as propriedades dos itens, peso, valor, orcamento...
             Item item1 = new Item(60,250,"item1");
@@ -34,11 +34,11 @@ public class AlgorithmController {
             availableItems.add(item3);
             availableItems.add(item4);
             int[] pesoDeTodosOsItens = {item1.getWeight(),item2.getWeight(),item3.getWeight(),item4.getWeight()};
-            int[] valoresDosItensDisponíveisQuePodemSerColocadosNaMochila ={
+            int[] valoresDosItensDisponiveisQuePodemSerColocadosNaMochila ={
                     item1.getValue(),item2.getValue(),item3.getValue(),item4.getValue()
             };
 
-            int result =  knapsackAlgorithm.knapsackDynamicProgramming(pesoDeTodosOsItens, valoresDosItensDisponíveisQuePodemSerColocadosNaMochila, availableItems.size(), budget, availableItems);
+            int result =  knapsackAlgorithm.knapsackDynamicProgramming(pesoDeTodosOsItens, valoresDosItensDisponiveisQuePodemSerColocadosNaMochila, availableItems.size(), budget, availableItems);
             return new ResponseEntity<>(result,HttpStatus.OK);
         } catch (Exception e) {
             log.error("Problema no Algoritmo Padrao de Knapsack");
