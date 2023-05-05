@@ -31,3 +31,9 @@ Projeto Integrador da Faculdade de Ciencias da Computacao da Uri Campus de Erech
 * COMANDO: *git checkout -b <nome do novo branch>* . Cria um novo branch
 
 * COMANDO: *git checkout <nome do branch desejado>*
+
+
+# CAMINHO PARA FAZER REQUISICAO: 
+http://localhost:8080/api/default?budget=350
+
+* A requisicao tem como parametro uma variavel int com valor a definir pelo usuario
