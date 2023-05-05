@@ -22,7 +22,9 @@ public class AlgorithmController {
     @GetMapping("/default")
     public ResponseEntity<Integer> getresult(@RequestParam int budget) {
         try {
-            KnapsackAlgorithm knapsackAlgorithm = new KnapsackAlgorithm(); //TODO pegar as propriedades dos itens, peso, valor, orcamento...
+            KnapsackAlgorithm knapsackAlgorithm = new KnapsackAlgorithm();
+            //TODO colocar esse caso de teste na classe Test
+            //TODO retornar tambem os Itens e nao somente o valor final, esta atualmente imprimindo no console
             Item item1 = new Item(60,250,"item1");
             Item item2 = new Item(160,1000,"item2");
             Item item3 = new Item(260,550,"item3");
