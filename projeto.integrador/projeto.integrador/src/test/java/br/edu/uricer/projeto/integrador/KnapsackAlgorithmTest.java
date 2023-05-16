@@ -13,13 +13,14 @@ public class KnapsackAlgorithmTest {
         test.testKnapsackDynamicProgrammingWithDesiredItem();
     }
     public void testKnapsackDynamicProgramming() {
+        System.out.println("TESTANDO NORMALMENTE");
         List<Item> itemList = createItemList();
 
         int[] weights = getWeights(itemList);
         int[] values = getValues(itemList);
 
         int targetValue = 200;
-
+        System.out.println("eu tenho um valor de U$"+targetValue);
         KnapsackAlgorithm knapsackAlgorithm = new KnapsackAlgorithm();
         List<Item> selectedItems = knapsackAlgorithm.knapsackDynamicProgramming(weights, values, itemList.size(), targetValue, itemList);
         List<Item> unselectedItems = getUnselectedItems(itemList, selectedItems);
@@ -33,8 +34,10 @@ public class KnapsackAlgorithmTest {
         for (Item item : unselectedItems) {
             System.out.println("(" + item.getName() + ", U$" + item.getValue() + ")");
         }
+        System.out.println("\nFINAL DO ITEM NORMAL");
     }
     public void testKnapsackDynamicProgrammingWithDesiredItem(){
+        System.out.println("\nTESTANDO COM ITEM ESCOLHIDO");
             List<Item> itemList = createItemList();
 
             int[] weights = getWeights(itemList);
@@ -42,7 +45,7 @@ public class KnapsackAlgorithmTest {
 
             int targetValue = 200;
             int posicaoItemDesejado = 1;
-
+        System.out.println("Eu tenho um valor de U$"+targetValue);
             KnapsackAlgorithm knapsackAlgorithm = new KnapsackAlgorithm();
             List<Item> selectedItems = knapsackAlgorithm.knapsackDynamicProgrammingWithDesiredItem(weights, values, itemList.size(), targetValue,posicaoItemDesejado, itemList);
             List<Item> unselectedItems = getUnselectedItems(itemList, selectedItems);
@@ -56,6 +59,7 @@ public class KnapsackAlgorithmTest {
             for (Item item : unselectedItems) {
                 System.out.println("(" + item.getName() + ", U$" + item.getValue() + ")");
             }
+        System.out.println("FINAL DO ITEM ESCOLHIDO");
     }
     private static int[] getValues(List<Item> itemList) {
         int[] values = new int[itemList.size()];

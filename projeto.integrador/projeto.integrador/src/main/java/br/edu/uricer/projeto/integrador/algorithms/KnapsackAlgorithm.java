@@ -46,7 +46,44 @@ public class KnapsackAlgorithm {
         return selectedItems;
     }
 
-   // public List<Item> knapsackDynamicProgrammingWithDesiredItem(int[] weights, int[] values, int size, int targetValue, int posicaoItemDesejado, List<Item> itemList) {
+    public List<Item> knapsackDynamicProgrammingWithDesiredItem(int[] weights, int[] values, int size, int targetValue, int desiredItemIndex, List<Item> itemList) {
+        if (size <= 0 || targetValue <= 0 || desiredItemIndex < 0 || desiredItemIndex >= itemList.size()) {
+            return new ArrayList<>();
+        }
 
-   // }
+        int[][] dp = new int[size + 1][targetValue + 1];
+        boolean[][] selected = new boolean[size + 1][targetValue + 1];
+
+        for (int i = 1; i <= size; i++) {
+            for (int j = 1; j <= targetValue; j++) {
+                int valueWithoutItemI = dp[i - 1][j];
+                if (values[i - 1] > j) {
+                    dp[i][j] = valueWithoutItemI;
+                } else {
+                    int valueWithItemI = dp[i - 1][j - values[i - 1]] + weights[i - 1];
+                    if (valueWithItemI > valueWithoutItemI) {
+                        dp[i][j] = valueWithItemI;
+                        selected[i][j] = true;
+                    } else {
+                        dp[i][j] = valueWithoutItemI;
+                    }
+                }
+            }
+        }
+
+        // Find selected items
+        List<Item> selectedItems = new ArrayList<>();
+        int j = targetValue;
+        for (int i = size; i >= 1 && j >= 1; i--) {
+            if (selected[i][j]) {
+                if (i - 1 == desiredItemIndex) {
+                    selectedItems.add(itemList.get(i - 1));
+                }
+                j -= values[i - 1];
+            }
+        }
+        Collections.reverse(selectedItems);
+
+        return selectedItems;
+    }
 }
