@@ -9,6 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 
 public class Item {
+    int id;
     int weight;
     int value;
     String name;

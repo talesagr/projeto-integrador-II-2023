@@ -1,6 +1,7 @@
 package br.edu.uricer.projeto.integrador.presentation;
 
 import br.edu.uricer.projeto.integrador.algorithms.KnapsackAlgorithm;
+import br.edu.uricer.projeto.integrador.dto.KnapsackDto;
 import br.edu.uricer.projeto.integrador.services.ItemService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -23,14 +24,22 @@ public class AlgorithmController {
         this.itemService = itemService;
     }
     @GetMapping("/default")
-    public ResponseEntity<String> getresult(@RequestParam int budget) {
+    public ResponseEntity<List> getResult(@RequestBody KnapsackDto knapsackRequest) {
         try {
+            int budget = knapsackRequest.getBudget();
             KnapsackAlgorithm knapsackAlgorithm = new KnapsackAlgorithm();
-            //int result =  knapsackAlgorithm.knapsackDynamicProgramming(pesoDeTodosOsItens, valoresDosItensDisponiveisQuePodemSerColocadosNaMochila, availableItems.size(), budget, availableItems,budget);
-            String result = "CAMINHO BEM SUCEDIDO! Voce digitou: " + budget;
-            return new ResponseEntity<>(result,HttpStatus.OK);
+
+            List result = knapsackAlgorithm.knapsackDynamicProgramming(
+                    itemService.getWeightOfItems(),
+                    itemService.getValueOfItems(),
+                    itemService.getItemList().size(),
+                    budget,
+                    itemService.getItemList()
+            );
+
+            return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (Exception e) {
-            log.error("Problema no Algoritmo Padrao de Knapsack");
+            log.error("Problema no Algoritmo Padrão de Knapsack: ", e);
             return new ResponseEntity<>(null, HttpStatus.OK);
         }
     }
@@ -42,7 +51,7 @@ public class AlgorithmController {
             itemsList.addAll(itemService.getItemList());
             return new ResponseEntity<>(itemsList, HttpStatus.OK);
         } catch (Exception e) {
-            log.error("Problem in the home");
+            log.error("Problema na Home: ", e);
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
