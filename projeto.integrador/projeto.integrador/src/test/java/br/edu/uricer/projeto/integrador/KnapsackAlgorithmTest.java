@@ -5,21 +5,24 @@ import br.edu.uricer.projeto.integrador.domains.Item;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class KnapsackAlgorithmTest {
     public static void main(String[] args) {
         KnapsackAlgorithmTest test = new KnapsackAlgorithmTest();
         test.testKnapsackDynamicProgramming();
-        test.testKnapsackDynamicProgrammingWithDesiredItem();
+        //test.testKnapsackDynamicProgrammingWithDesiredItem();
     }
     public void testKnapsackDynamicProgramming() {
-        System.out.println("TESTANDO NORMALMENTE");
+        System.out.println("DIGITE SEU VALOR");
         List<Item> itemList = createItemList();
 
         int[] weights = getWeights(itemList);
         int[] values = getValues(itemList);
 
-        int targetValue = 200;
+        Scanner sc = new Scanner(System.in);
+        int targetValue = sc.nextInt();
+
         System.out.println("eu tenho um valor de U$"+targetValue);
         KnapsackAlgorithm knapsackAlgorithm = new KnapsackAlgorithm();
         List<Item> selectedItems = knapsackAlgorithm.knapsackDynamicProgramming(weights, values, itemList.size(), targetValue, itemList);
@@ -36,14 +39,13 @@ public class KnapsackAlgorithmTest {
         }
         System.out.println("\nFINAL DO ITEM NORMAL");
     }
-    public void testKnapsackDynamicProgrammingWithDesiredItem(){
-        System.out.println("\nTESTANDO COM ITEM ESCOLHIDO");
-            List<Item> itemList = createItemList();
+   public void testKnapsackDynamicProgrammingWithDesiredItem() {
+        List<Item> itemList = createItemList();
 
-            int[] weights = getWeights(itemList);
-            int[] values = getValues(itemList);
+        int[] weights = getWeights(itemList);
+        int[] values = getValues(itemList);
 
-            int targetValue = 200;
+        int targetValue = 200;
             int posicaoItemDesejado = 1;
         System.out.println("Eu tenho um valor de U$"+targetValue);
             KnapsackAlgorithm knapsackAlgorithm = new KnapsackAlgorithm();

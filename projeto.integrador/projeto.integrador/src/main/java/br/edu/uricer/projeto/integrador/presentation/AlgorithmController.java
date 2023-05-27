@@ -1,7 +1,8 @@
 package br.edu.uricer.projeto.integrador.presentation;
 
 import br.edu.uricer.projeto.integrador.algorithms.KnapsackAlgorithm;
-import br.edu.uricer.projeto.integrador.domains.Item;
+import br.edu.uricer.projeto.integrador.services.ItemService;
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -14,22 +15,35 @@ import java.util.List;
 @Slf4j
 @CrossOrigin
 @RestController
-@NoArgsConstructor
 @RequestMapping("/api")
 public class AlgorithmController {
+
+    private final ItemService itemService;
+    public AlgorithmController(ItemService itemService) {
+        this.itemService = itemService;
+    }
     @GetMapping("/default")
-    public ResponseEntity<Integer> getresult(@RequestParam int budget) {
+    public ResponseEntity<String> getresult(@RequestParam int budget) {
         try {
             KnapsackAlgorithm knapsackAlgorithm = new KnapsackAlgorithm();
-            //TODO retornar tambem os Itens e nao somente o valor final, esta atualmente imprimindo no console
-
-            //Foi criado uma classe de teste para realizar testes do algoritmo sem ser via requisicao HTTP
             //int result =  knapsackAlgorithm.knapsackDynamicProgramming(pesoDeTodosOsItens, valoresDosItensDisponiveisQuePodemSerColocadosNaMochila, availableItems.size(), budget, availableItems,budget);
-            int result = 0;
+            String result = "CAMINHO BEM SUCEDIDO! Voce digitou: " + budget;
             return new ResponseEntity<>(result,HttpStatus.OK);
         } catch (Exception e) {
             log.error("Problema no Algoritmo Padrao de Knapsack");
             return new ResponseEntity<>(null, HttpStatus.OK);
+        }
+    }
+
+    @GetMapping("/home")
+    public ResponseEntity<List> getHome() {
+        try {
+            List itemsList = new ArrayList();
+            itemsList.addAll(itemService.getItemList());
+            return new ResponseEntity<>(itemsList, HttpStatus.OK);
+        } catch (Exception e) {
+            log.error("Problem in the home");
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
