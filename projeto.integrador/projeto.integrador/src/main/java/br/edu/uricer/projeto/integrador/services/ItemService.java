@@ -1,9 +1,12 @@
 package br.edu.uricer.projeto.integrador.services;
 
 import br.edu.uricer.projeto.integrador.domains.Item;
+import com.google.gson.Gson;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Array;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 @Service
@@ -48,5 +51,19 @@ public class ItemService {
         }
 
         return valueOfItems;
+    }
+
+    public File saveItems(List<Item> newList) {
+        Gson gson = new Gson();
+        String json = gson.toJson(newList);
+        String filename = "items.json";
+
+        try (FileWriter fileWriter = new FileWriter(filename)) {
+            fileWriter.write(json);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return new File(filename);
     }
 }
