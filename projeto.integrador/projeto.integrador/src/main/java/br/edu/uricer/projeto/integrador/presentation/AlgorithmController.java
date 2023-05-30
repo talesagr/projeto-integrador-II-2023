@@ -1,6 +1,7 @@
 package br.edu.uricer.projeto.integrador.presentation;
 
 import br.edu.uricer.projeto.integrador.algorithms.KnapsackAlgorithm;
+import br.edu.uricer.projeto.integrador.domains.Item;
 import br.edu.uricer.projeto.integrador.dto.KnapsackDto;
 import br.edu.uricer.projeto.integrador.services.ItemService;
 import lombok.AllArgsConstructor;
@@ -52,6 +53,21 @@ public class AlgorithmController {
             return new ResponseEntity<>(itemsList, HttpStatus.OK);
         } catch (Exception e) {
             log.error("Problema na Home: ", e);
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PostMapping("/save")
+    public ResponseEntity<String> saveItems(@RequestBody List<Item> itemList) {
+        try {
+            if (itemList != null && !itemList.isEmpty()) {
+                itemService.saveItems(itemList);
+                return new ResponseEntity<>("Arquivo salvo com sucesso", HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("Sua lista de itens está vazia", HttpStatus.BAD_REQUEST);
+            }
+        } catch (Exception e) {
+            log.error("Problema no salvamento de itens", e);
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

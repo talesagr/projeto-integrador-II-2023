@@ -79,15 +79,15 @@ public class KnapsackAlgorithmTest {
     }
     private static List<Item> createItemList() {
         List<Item> itemList = new ArrayList<>();
-        itemList.add(new Item(10, 60, "Item1"));
-        itemList.add(new Item(20, 100, "Item2"));
-        itemList.add(new Item(30, 120, "Item3"));
-        itemList.add(new Item(40, 150, "Item4"));
-        itemList.add(new Item(15, 80, "Item5"));
-        itemList.add(new Item(25, 110, "Item6"));
-        itemList.add(new Item(35, 130, "Item7"));
-        itemList.add(new Item(45, 160, "Item8"));
-        itemList.add(new Item(45,1050,"Item9"));
+        itemList.add(new Item(0,10, 60, "Item1"));
+        itemList.add(new Item(1,20, 100, "Item2"));
+        itemList.add(new Item(2,30, 120, "Item3"));
+        itemList.add(new Item(3,40, 150, "Item4"));
+        itemList.add(new Item(4,15, 80, "Item5"));
+        itemList.add(new Item(5,25, 110, "Item6"));
+        itemList.add(new Item(6,35, 130, "Item7"));
+        itemList.add(new Item(7,45, 160, "Item8"));
+        itemList.add(new Item(8,45,1050,"Item9"));
         return itemList;
     }
     private static List<Item> getUnselectedItems(List<Item> itemList, List<Item> selectedItems) {
