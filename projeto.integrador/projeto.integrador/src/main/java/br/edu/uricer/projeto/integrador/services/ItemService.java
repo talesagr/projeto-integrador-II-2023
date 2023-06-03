@@ -18,18 +18,18 @@ public class ItemService {
     }
     private static List<Item> createItemList() {
         List<Item> itemList = new ArrayList<>();
-        itemList.add(new Item(0,10, 60, "Item1"));
-        itemList.add(new Item(1,20, 100, "Item2"));
-        itemList.add(new Item(2, 30,120, "Item3"));
-        itemList.add(new Item(3,40, 150, "Item4"));
-        itemList.add(new Item(4,50, 80, "Item5"));
-        itemList.add(new Item(5,60, 110, "Item6"));
-        itemList.add(new Item(6,70, 130, "Item7"));
-        itemList.add(new Item(7,80, 160, "Item8"));
-        itemList.add(new Item(8,90,1050,"Item9"));
+        itemList.add(new Item(1,20, 100, "Cadeira de Madeira"));
+        itemList.add(new Item(2, 30,175, "Mesa de Madeira"));
+        itemList.add(new Item(3,40, 160, "Armario de Madeira"));
+        itemList.add(new Item(4,50, 200, "Cama de Madeira"));
+        itemList.add(new Item(5,60, 100, "Cabeçeira de Madeira"));
+        itemList.add(new Item(6,70, 130, "Bancada de Madeira"));
+        itemList.add(new Item(7,80, 1650, "Adega de Madeira"));
+        itemList.add(new Item(8,90,1050,"Nicho de Madeira"));
+        itemList.add(new Item(9,100,3450,"Mesa de Madeira de ambiente externo"));
+        itemList.add(new Item(10,110,450,"Cadeira de Madeira de ambiente externo"));
         return itemList;
     }
-
     public int[] getWeightOfItems() {
         List<Item> itemList = getItemList();
         int[] weightOfItems = new int[itemList.size()];

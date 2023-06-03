@@ -1,6 +1,5 @@
 package br.edu.uricer.projeto.integrador.dto;
 
-import br.edu.uricer.projeto.integrador.algorithms.KnapsackAlgorithm;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,5 +12,4 @@ import lombok.Setter;
 public class KnapsackDto {
     @JsonProperty("budget")
     private int budget;
-
 }
