@@ -6,9 +6,19 @@ document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.materialboxed');
     var instances = M.Materialbox.init(elems);
   });
+  document.addEventListener('DOMContentLoaded', function() {
+      M.updateTextFields();
+  });
+
+    
+  function setValue(){
+    var value = document.querySelector(".money").value;
+    console.log(value);
+    const budget = JSON.parse(value);
+  }
   
-    const item1 = '{"name":"Cadeira de Madeira", "id": "1"}';
-    const item2 = '{"name":"Mesa de Madeira", "id": "2"}';
+    const item1 = '{ "name":"Cadeira de Madeira", "id": "1"}';
+    const item2 = '{ "name":"Mesa de Madeira", "id": "2"}';
     const item3 = '{ "name":"Armario de Madeira", "id": "3"}';
     const item4 = '{ "name":"Cama de Madeira", "id": "4"}';
     const item5 = '{ "name":"Cabeçeira de Madeira", "id": "5"}';
@@ -28,5 +38,3 @@ document.addEventListener('DOMContentLoaded', function() {
     const obj8 = JSON.parse(item8);
     const obj9 = JSON.parse(item9);
     const obj10 = JSON.parse(item10);
-
-  
