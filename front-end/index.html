@@ -1,167 +1,268 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/main.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Teste</title>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo center">Logo</a>
-        </div>
-      </nav>
-    </header>
-    <main>
-      <ul class="collapsible popout">
-        <li>
-          <div class="collapsible-header" tabindex="0">
-            <i class="material-icons">keyboard_arrow_right</i>First
+
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="css/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Knapsack</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">Algoritmo de Knapsack - Projeto Integrador II</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <div class="input-field">
+            <input id="budgetInput" type="number" class="validate">
+            <label for="input-number">R$</label>
           </div>
-          <div class="collapsible-body" tabindex="=0">
-            <span>Lorem ipsum dolor sit amet.</span>
-          </div>
-        </li>
-        <li>
-          <div class="collapsible-header" tabindex="0">
-            <i class="material-icons">keyboard_arrow_right</i>Second
-          </div>
-          <div class="collapsible-body">
-            <span>
-              <img class="materialboxed imagem" src="imagens/cadeirademadeira.jpg">
-              <div class="flextext">
-                <p class="descrição">Descrição:</p>
-                <p class="descrição">Cadeira de madeira<br> Feita à mão por um de nossos espcialistas, utilizando máterias de qualidade</p>
-                <p class="descrição">Valor: 350,00R$</p>
-                <a onclick="M.toast({html: 'Item adicionado a lista'})" class="btn">Adiconar a lista</a>
-            </div>
-            </span>
-          </div>
-        </li>
-        <li>
-          <div class="collapsible-header">
-            <i class="material-icons">keyboard_arrow_right</i>Third
-          </div>
-          <div class="collapsible-body">
-            <span>Lorem ipsum dolor sit amet.</span>
-          </div>
-        </li>
-        <li>
-          <div class="collapsible-header" tabindex="0">
-            <i class="material-icons">keyboard_arrow_right</i>Four
-          </div>
-          <div class="collapsible-body" tabindex="=0">
-            <span>Lorem ipsum dolor sit amet.</span>
-          </div>
-          <li>
-            <div class="collapsible-header" tabindex="0">
-              <i class="material-icons">keyboard_arrow_right</i>Five
-            </div>
-            <div class="collapsible-body">
-              <span>
-                <img class="materialboxed imagem" src="imagens/cadeirademadeira.jpg">
-                <div class="flextext">
-                  <p class="descrição">Descrição:</p>
-                  <p class="descrição">Cadeira de madeira<br> Feita à mão por um de nossos espcialistas, utilizando máterias de qualidade</p>
-                  <p class="descrição">Valor: 350,00R$</p>
-                  <a onclick="M.toast({html: 'Item adicionado a lista'})" class="btn">Adiconar a lista</a>
-              </div>
-              </span>
-            </div>
-            <div class="collapsible-header" tabindex="0">
-              <i class="material-icons">keyboard_arrow_right</i>Six
-            </div>
-            <div class="collapsible-body">
-              <span>
-                <img class="materialboxed imagem" src="imagens/cadeirademadeira.jpg">
-                <div class="flextext">
-                  <p class="descrição">Descrição:</p>
-                  <p class="descrição">Cadeira de madeira<br> Feita à mão por um de nossos espcialistas, utilizando máterias de qualidade</p>
-                  <p class="descrição">Valor: 350,00R$</p>
-                  <a onclick="M.toast({html: 'Item adicionado a lista'})" class="btn">Adiconar a lista</a>
-              </div>
-              </span>
-            </div>
-            <div class="collapsible-header" tabindex="0">
-              <i class="material-icons">keyboard_arrow_right</i>Seven
-            </div>
-            <div class="collapsible-body">
-              <span>
-                <img class="materialboxed imagem" src="imagens/cadeirademadeira.jpg">
-                <div class="flextext">
-                  <p class="descrição">Descrição:</p>
-                  <p class="descrição">Cadeira de madeira<br> Feita à mão por um de nossos espcialistas, utilizando máterias de qualidade</p>
-                  <p class="descrição">Valor: 350,00R$</p>
-                  <a onclick="M.toast({html: 'Item adicionado a lista'})" class="btn">Adiconar a lista</a>
-              </div>
-              </span>
-            </div>
-            <div class="collapsible-header" tabindex="0">
-              <i class="material-icons">keyboard_arrow_right</i>Eight
-            </div>
-            <div class="collapsible-body">
-              <span>
-                <img class="materialboxed imagem" src="imagens/cadeirademadeira.jpg">
-                <div class="flextext">
-                  <p class="descrição">Descrição:</p>
-                  <p class="descrição">Cadeira de madeira<br> Feita à mão por um de nossos espcialistas, utilizando máterias de qualidade</p>
-                  <p class="descrição">Valor: 350,00R$</p>
-                  <a onclick="M.toast({html: 'Item adicionado a lista'})" class="btn">Adiconar a lista</a>
-              </div>
-              </span>
-            </div>
-            <div class="collapsible-header" tabindex="0">
-              <i class="material-icons">keyboard_arrow_right</i>Nine
-            </div>
-            <div class="collapsible-body">
-              <span>
-                <img class="materialboxed imagem" src="imagens/cadeirademadeira.jpg">
-                <div class="flextext">
-                  <p class="descrição">Descrição:</p>
-                  <p class="descrição">Cadeira de madeira<br> Feita à mão por um de nossos espcialistas, utilizando máterias de qualidade</p>
-                  <p class="descrição">Valor: 350,00R$</p>
-                  <a onclick="M.toast({html: 'Item adicionado a lista'})" class="btn">Adiconar a lista</a>
-              </div>
-              </span>
-            </div>
-            <div class="collapsible-header" tabindex="0">
-              <i class="material-icons">keyboard_arrow_right</i>Ten
-            </div>
-            <div class="collapsible-body">
-              <span>
-                <img class="materialboxed imagem" src="imagens/cadeirademadeira.jpg">
-                <div class="flextext">
-                  <p class="descrição">Descrição:</p>
-                  <p class="descrição">Cadeira de madeira<br> Feita à mão por um de nossos espcialistas, utilizando máterias de qualidade</p>
-                  <p class="descrição">Valor: 350,00R$</p>
-                  <a onclick="M.toast({html: 'Item adicionado a lista'})" class="btn">Adiconar a lista</a>
-              </div>
-              </span>
-            </div>
-      </ul>
-    </main>
-    <footer class="page-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col l6 s12">
-            <h5 class="white-text"></h5>
-            <p class="grey-text text-lighten-4"></p>
-          </div>
-          <div class="col l4 offset-l2 s12">
-          </div>
+          <button id="budgetButton" class="btn waves-effect waves-light" type="button" name="action">Enviar
+            Orçamento</button>
         </div>
       </div>
-      <div class="footer-copyright">
-        <div class="container">
+    </div>
+    <ul id="ul-items" class="collapsible popout">
+      <li>
+        <div class="collapsible-header" tabindex="0">
+          <i class="material-icons">keyboard_arrow_right</i>Cadeira
+        </div>
+        <div class="collapsible-body" tabindex="=0">
+          <span>Lorem ipsum dolor sit amet.</span>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header" tabindex="0">
+          <i class="material-icons">keyboard_arrow_right</i>Mesa
+        </div>
+        <div class="collapsible-body">
+          <span>
+            <img class="materialboxed imagem" src="imagens/cadeirademadeira.jpg">
+            <div class="flextext">
+              <p class="descrição">Descrição:</p>
+              <p class="descrição">Cadeira de madeira<br> Feita à mão por um de nossos espcialistas, utilizando máterias
+                de qualidade</p>
+              <p class="descrição">Valor: 350,00R$</p>
+              <a onclick="M.toast({html: 'Item adicionado a lista'})" class="btn">Adiconar a lista</a>
+            </div>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <i class="material-icons">keyboard_arrow_right</i>Corrente
+        </div>
+        <div class="collapsible-body">
+          <span>Lorem ipsum dolor sit amet.</span>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header" tabindex="0">
+          <i class="material-icons">keyboard_arrow_right</i>Four
+        </div>
+        <div class="collapsible-body" tabindex="=0">
+          <span>Lorem ipsum dolor sit amet.</span>
+        </div>
+      <li>
+        <div class="collapsible-header" tabindex="0">
+          <i class="material-icons">keyboard_arrow_right</i>Cadeira de Madeira
+        </div>
+        <div class="collapsible-body">
+          <span>
+            <img class="materialboxed imagem" src="imagens/cadeirademadeira.jpg">
+            <div class="flextext">
+              <p class="descrição">Descrição:</p>
+              <p class="descrição">Cadeira de madeira<br> Feita à mão por um de nossos espcialistas, utilizando máterias
+                de qualidade</p>
+              <p class="descrição">Valor: 350,00R$</p>
+              <a onclick="M.toast({html: 'Item adicionado a lista'})" class="btn">Adiconar a lista</a>
+            </div>
+          </span>
+        </div>
+        <div class="collapsible-header" tabindex="0">
+          <i class="material-icons">keyboard_arrow_right</i>Six
+        </div>
+        <div class="collapsible-body">
+          <span>
+            <img class="materialboxed imagem" src="imagens/cadeirademadeira.jpg">
+            <div class="flextext">
+              <p class="descrição">Descrição:</p>
+              <p class="descrição">Cadeira de madeira<br> Feita à mão por um de nossos espcialistas, utilizando máterias
+                de qualidade</p>
+              <p class="descrição">Valor: 350,00R$</p>
+              <a onclick="M.toast({html: 'Item adicionado a lista'})" class="btn">Adiconar a lista</a>
+            </div>
+          </span>
+        </div>
+        <div class="collapsible-header" tabindex="0">
+          <i class="material-icons">keyboard_arrow_right</i>Seven
+        </div>
+        <div class="collapsible-body">
+          <span>
+            <img class="materialboxed imagem" src="imagens/cadeirademadeira.jpg">
+            <div class="flextext">
+              <p class="descrição">Descrição:</p>
+              <p class="descrição">Cadeira de madeira<br> Feita à mão por um de nossos espcialistas, utilizando máterias
+                de qualidade</p>
+              <p class="descrição">Valor: 350,00R$</p>
+              <a onclick="M.toast({html: 'Item adicionado a lista'})" class="btn">Adiconar a lista</a>
+            </div>
+          </span>
+        </div>
+        <div class="collapsible-header" tabindex="0">
+          <i class="material-icons">keyboard_arrow_right</i>Eight
+        </div>
+        <div class="collapsible-body">
+          <span>
+            <img class="materialboxed imagem" src="imagens/cadeirademadeira.jpg">
+            <div class="flextext">
+              <p class="descrição">Descrição:</p>
+              <p class="descrição">Cadeira de madeira<br> Feita à mão por um de nossos espcialistas, utilizando máterias
+                de qualidade</p>
+              <p class="descrição">Valor: 350,00R$</p>
+              <a onclick="M.toast({html: 'Item adicionado a lista'})" class="btn">Adiconar a lista</a>
+            </div>
+          </span>
+        </div>
+        <div class="collapsible-header" tabindex="0">
+          <i class="material-icons">keyboard_arrow_right</i>Nine
+        </div>
+        <div class="collapsible-body">
+          <span>
+            <img class="materialboxed imagem" src="imagens/cadeirademadeira.jpg">
+            <div class="flextext">
+              <p class="descrição">Descrição:</p>
+              <p class="descrição">Cadeira de madeira<br> Feita à mão por um de nossos espcialistas, utilizando máterias
+                de qualidade</p>
+              <p class="descrição">Valor: 350,00R$</p>
+              <a onclick="M.toast({html: 'Item adicionado a lista'})" class="btn">Adiconar a lista</a>
+            </div>
+          </span>
+        </div>
+        <div class="collapsible-header" tabindex="0">
+          <i class="material-icons">keyboard_arrow_right</i>Ten
+        </div>
+        <div class="collapsible-body">
+          <span>
+            <img class="materialboxed imagem" src="imagens/cadeirademadeira.jpg">
+            <div class="flextext">
+              <p class="descrição">Descrição:</p>
+              <p class="descrição">Cadeira de madeira<br> Feita à mão por um de nossos espcialistas, utilizando máterias
+                de qualidade</p>
+              <p class="descrição">Valor: 350,00R$</p>
+              <a onclick="M.toast({html: 'Item adicionado a lista'})" class="btn">Adiconar a lista</a>
+            </div>
+          </span>
+        </div>
+    </ul>
+  </main>
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text"></h5>
+          <p class="grey-text text-lighten-4"></p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
         © 2023 Copyright Text
         <a class="grey-text text-lighten-4 right" href="#!"></a>
-        </div>
       </div>
-    </footer>
-    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-    <script type="text/javascript" src="main.js"></script>
-  </body>
+    </div>
+  </footer>
+  <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script>
+    (function () {
+
+      document.getElementById("budgetButton").addEventListener('click', () => {
+        let budget = document.getElementById('budgetInput').value;
+
+        const options = {
+          method: 'GET',
+          url: `http://localhost:8080/api/default/${budget}`,
+          headers: { 'Content-Type': 'application/json' }
+        };
+
+        axios.request(options).then(function (response) {
+
+          let itensListUL = document.getElementById('ul-items');
+
+          itensListUL.innerHTML = '';
+          
+          Object.values(response.data).forEach(prod => {
+
+            let li = createLi(prod);
+
+            itensListUL.appendChild(li);
+
+          });
+
+        }).catch(function (error) {
+          console.error(error);
+        });
+      })
+
+
+      function createLi(name) {
+        let li = document.createElement('li');
+
+        let principalDiv = createPrincipalDiv(name);
+
+        let secundaryDiv = createSecondaryDiv();
+
+        li.appendChild(principalDiv);
+        li.appendChild(secundaryDiv);
+
+        return li;
+      }
+
+
+      function createPrincipalDiv(name) {
+        let div = document.createElement('div');
+        div.setAttribute('class', 'collapsible-header');
+        div.innerHTML = `<i class="material-icons">keyboard_arrow_right</i> ${name}`;
+        return div;
+      }
+
+      function createSecondaryDiv() {
+        let div = document.createElement('div');
+        div.setAttribute('class', 'collapsible-body');
+
+        let span = document.createElement('span');
+        span.insertAdjacentHTML('afterbegin', 'Lorem ipsum dolor sit amet.');
+        
+
+        div.innerHTML = `
+                        <img class="materialboxed imagem" src="imagens/cadeirademadeira.jpg">
+
+                        <p class="descrição">Descrição:</p> 
+        
+                        <p class="descrição">Cadeira de madeira<br> Feita à mão por um de nossos espcialistas, utilizando máterias de qualidade</p>
+
+                        <p class="descrição">Valor: R$350,00</p>
+          `
+          div.style.textAlign  = 'center';
+        return div;
+      }
+
+    })();
+
+  </script>
+</body>
+
 </html>
