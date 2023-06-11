@@ -18,6 +18,7 @@ public class ItemService {
     }
     private static List<Item> createItemList() {
         List<Item> itemList = new ArrayList<>();
+
         itemList.add(new Item(0,10, 80, "Cadeira de Madeira"));
         itemList.add(new Item(1,20, 100, "Mesa de Centro"));
         itemList.add(new Item(2, 30,140, "Cadeira de Ferro - Branca"));
@@ -28,9 +29,9 @@ public class ItemService {
         itemList.add(new Item(7,80, 500, "Cadeira VIP"));
         itemList.add(new Item(8,90,3000,"Conjunto Mesa de Jantar VIP"));
         itemList.add(new Item(10,80,50, "Luminária para mesa de centro"));
+
         return itemList;
     }
-
     public int[] getWeightOfItems() {
         List<Item> itemList = getItemList();
         int[] weightOfItems = new int[itemList.size()];

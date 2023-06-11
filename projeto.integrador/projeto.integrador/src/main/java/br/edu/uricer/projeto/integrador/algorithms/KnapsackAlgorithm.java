@@ -6,6 +6,7 @@ import java.util.*;
 
 public class KnapsackAlgorithm {
     public Map<Integer, String> knapsackDynamicProgramming(int[] weightOfAvailableItems, int[] valuesOfWeightOfAvailableItems, int availableItemsToPutInside, int targetValue, List<Item> itemList) {
+
         if (availableItemsToPutInside <= 0 || targetValue <= 0) {
             return new HashMap<>();
         }
