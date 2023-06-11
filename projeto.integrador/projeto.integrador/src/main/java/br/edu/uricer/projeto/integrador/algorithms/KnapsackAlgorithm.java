@@ -5,12 +5,8 @@ import br.edu.uricer.projeto.integrador.domains.Item;
 import java.util.*;
 
 public class KnapsackAlgorithm {
+    public Map<Integer, String> knapsackDynamicProgramming(int[] weightOfAvailableItems, int[] valuesOfWeightOfAvailableItems, int availableItemsToPutInside, int targetValue, List<Item> itemList) {
 
-    public Map<Integer, String> knapsackDynamicProgramming(int[] weightOfAvailableItems,
-                                                           int[] valuesOfWeightOfAvailableItems,
-                                                           int availableItemsToPutInside,
-                                                           int targetValue,
-                                                           List<Item> itemList) {
         if (availableItemsToPutInside <= 0 || targetValue <= 0) {
             return new HashMap<>();
         }
@@ -35,24 +31,16 @@ public class KnapsackAlgorithm {
             }
         }
 
-        List<Item> selectedItems = new ArrayList<>();
+        Map<Integer, String> selectedItems = new HashMap<>();
         int j = targetValue;
         for (int i = availableItemsToPutInside; i >= 1 && j >= 1; i--) {
             if (selected[i][j]) {
-                selectedItems.add(itemList.get(i - 1));
+                Item item = itemList.get(i - 1);
+                selectedItems.put(item.getId(), item.getName());
                 j -= valuesOfWeightOfAvailableItems[i - 1];
             }
         }
-        Collections.reverse(selectedItems);
 
-        return extractItemIdAndName(selectedItems);
-    }
-
-    private Map<Integer, String> extractItemIdAndName(List<Item> items) {
-        Map<Integer, String> extractedItems = new HashMap<>();
-        for (Item item : items) {
-            extractedItems.put(item.getId(), item.getName());
-        }
-        return extractedItems;
+        return selectedItems;
     }
 }

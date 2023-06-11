@@ -26,13 +26,15 @@ public class AlgorithmController {
     public AlgorithmController(ItemService itemService) {
         this.itemService = itemService;
     }
-    @GetMapping("/default")
-    public ResponseEntity<Map<Integer, String>> getResult(@RequestBody KnapsackDto knapsackRequest) {
+    @GetMapping("/default/{budget}")
+    public ResponseEntity<Map> getResult(@PathVariable Integer budget) {
+
         try {
-            int budget = knapsackRequest.getBudget();
             KnapsackAlgorithm knapsackAlgorithm = new KnapsackAlgorithm();
 
-            Map<Integer, String> result = knapsackAlgorithm.knapsackDynamicProgramming(
+
+            Map result = knapsackAlgorithm.knapsackDynamicProgramming(
+
                     itemService.getWeightOfItems(),
                     itemService.getValueOfItems(),
                     itemService.getItemList().size(),

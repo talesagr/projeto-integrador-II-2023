@@ -10,9 +10,5 @@ import java.util.Scanner;
 public class KnapsackAlgorithmTest {
     public static void main(String[] args) {
         KnapsackAlgorithmTest test = new KnapsackAlgorithmTest();
-        test.testKnapsackDynamicProgramming();
-        //test.testKnapsackDynamicProgrammingWithDesiredItem();
-    }
-    public void testKnapsackDynamicProgramming() {
     }
 }
