@@ -18,15 +18,16 @@ public class ItemService {
     }
     private static List<Item> createItemList() {
         List<Item> itemList = new ArrayList<>();
-        itemList.add(new Item(0,10, 60, "Item1"));
-        itemList.add(new Item(1,20, 100, "Item2"));
-        itemList.add(new Item(2, 30,120, "Item3"));
-        itemList.add(new Item(3,40, 150, "Item4"));
-        itemList.add(new Item(4,50, 80, "Item5"));
-        itemList.add(new Item(5,60, 110, "Item6"));
-        itemList.add(new Item(6,70, 130, "Item7"));
-        itemList.add(new Item(7,80, 160, "Item8"));
-        itemList.add(new Item(8,90,1050,"Item9"));
+        itemList.add(new Item(0,10, 80, "Cadeira de Madeira"));
+        itemList.add(new Item(1,20, 100, "Mesa de Centro"));
+        itemList.add(new Item(2, 30,140, "Cadeira de Ferro - Branca"));
+        itemList.add(new Item(3,40, 150, "Cadeira de Ferro - Preta"));
+        itemList.add(new Item(4,50, 200, "Mesa de Jantar de Madeira"));
+        itemList.add(new Item(5,60, 350, "Mesa de Jantar de Vidro"));
+        itemList.add(new Item(6,70, 1000, "Mesa de Jantar VIP"));
+        itemList.add(new Item(7,80, 500, "Cadeira VIP"));
+        itemList.add(new Item(8,90,3000,"Conjunto Mesa de Jantar VIP"));
+        itemList.add(new Item(10,80,50, "Luminária para mesa de centro"));
         return itemList;
     }
 

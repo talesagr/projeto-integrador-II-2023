@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @CrossOrigin
@@ -24,13 +25,12 @@ public class AlgorithmController {
     public AlgorithmController(ItemService itemService) {
         this.itemService = itemService;
     }
-    @GetMapping("/default")
-    public ResponseEntity<List> getResult(@RequestBody KnapsackDto knapsackRequest) {
+    @GetMapping("/default/{budget}")
+    public ResponseEntity<Map> getResult(@PathVariable Integer budget) {
         try {
-            int budget = knapsackRequest.getBudget();
             KnapsackAlgorithm knapsackAlgorithm = new KnapsackAlgorithm();
 
-            List result = knapsackAlgorithm.knapsackDynamicProgramming(
+            Map result = knapsackAlgorithm.knapsackDynamicProgramming(
                     itemService.getWeightOfItems(),
                     itemService.getValueOfItems(),
                     itemService.getItemList().size(),
@@ -42,33 +42,6 @@ public class AlgorithmController {
         } catch (Exception e) {
             log.error("Problema no Algoritmo Padrão de Knapsack: ", e);
             return new ResponseEntity<>(null, HttpStatus.OK);
-        }
-    }
-
-    @GetMapping("/home")
-    public ResponseEntity<List> getHome() {
-        try {
-            List itemsList = new ArrayList();
-            itemsList.addAll(itemService.getItemList());
-            return new ResponseEntity<>(itemsList, HttpStatus.OK);
-        } catch (Exception e) {
-            log.error("Problema na Home: ", e);
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-    @PostMapping("/save")
-    public ResponseEntity<String> saveItems(@RequestBody List<Item> itemList) {
-        try {
-            if (itemList != null && !itemList.isEmpty()) {
-                itemService.saveItems(itemList);
-                return new ResponseEntity<>("Arquivo salvo com sucesso", HttpStatus.OK);
-            } else {
-                return new ResponseEntity<>("Sua lista de itens está vazia", HttpStatus.BAD_REQUEST);
-            }
-        } catch (Exception e) {
-            log.error("Problema no salvamento de itens", e);
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
